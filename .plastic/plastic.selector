@@ -1,0 +1,4 @@
+repository "2dStudy@wechat_os_qy03npu6q82bvdqcywrs9azae@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
