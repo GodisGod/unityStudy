@@ -45,6 +45,9 @@ TagManager:
   - name: Ground
     uniqueID: 3951656279
     locked: 0
+  - name: Water
+    uniqueID: 321200313
+    locked: 0
   - name: Objects
     uniqueID: 1733076847
     locked: 0
