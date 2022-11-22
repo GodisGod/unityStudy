@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - enemy
-  - CanBePickedUp
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -15,9 +13,6 @@ TagManager:
   - UI
   - 
   - 
-  - Blocking
-  - Consumables
-  - Enemies
   - 
   - 
   - 
@@ -30,6 +25,9 @@ TagManager:
   - 
   - 
   - 
+  - Layer 1
+  - Layer 2
+  - Layer 3
   - 
   - 
   - 
@@ -43,15 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
-    uniqueID: 3951656279
+  - name: Layer 1
+    uniqueID: 2425651459
     locked: 0
-  - name: Water
-    uniqueID: 321200313
+  - name: Layer 2
+    uniqueID: 4250941897
     locked: 0
-  - name: Objects
-    uniqueID: 1733076847
-    locked: 0
-  - name: Characters
-    uniqueID: 2651240545
+  - name: Layer 3
+    uniqueID: 4189426099
     locked: 0
