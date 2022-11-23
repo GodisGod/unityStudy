@@ -4,8 +4,12 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    public int hitPoints;
-    public int maxHitPoints;
+ 
+    public HitPoints hitPoints;
+
+    public float maxHitPoints;
+    public float startingHitPoints;
+
     // Start is called before the first frame update
     void Start()
     {

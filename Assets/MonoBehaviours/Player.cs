@@ -5,6 +5,19 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public HealthBar healthBarPrefab;
+    HealthBar healthBar;
+
+ 
+
+
+    private void Start()
+    {
+        hitPoints.value = startingHitPoints;
+        healthBar = Instantiate(healthBarPrefab);
+        healthBar.character = this;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("CanBePickedUp")) {
@@ -12,36 +25,43 @@ public class Player : Character
             Item hitObject = collision.gameObject.GetComponent<Consumable>().item;
 
             if (hitObject != null) {
-                collision.gameObject.SetActive(false);
+         
                 print("it: "+hitObject.objectName);
 
+                bool shouldDisappear = false;
 
                 switch (hitObject.itemType) {
 
                     case Item.ItemType.COIN:
+                        shouldDisappear = true;
                         break;
 
                     case Item.ItemType.HEALTH:
-                        AdjustHitPoints(hitObject.quantity);
+                        shouldDisappear = AdjustHitPoints(hitObject.quantity);
                         break;
                     default:
                         break;
 
+                }
 
-
-
+                if (shouldDisappear) {
+                    print("shouldDisappear = "+ shouldDisappear);
+                    collision.gameObject.SetActive(false);
                 }
 
             }
                 }
     }
 
-    private void AdjustHitPoints(int quantity)
+    private bool AdjustHitPoints(int quantity)
     {
-        hitPoints += quantity;
-        print("Adjusted hitpoints by: " + quantity+" result = "+hitPoints);
-        if (hitPoints >= maxHitPoints) {
-            hitPoints = maxHitPoints;
+       
+        if (hitPoints.value < maxHitPoints)
+        {
+            hitPoints.value += quantity;
+            print("Adjusted hitpoints by: " + quantity + " result = " + hitPoints.value);
+            return true;
         }
+        return false;
     }
 }
