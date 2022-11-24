@@ -8,7 +8,8 @@ public class Player : Character
     public HealthBar healthBarPrefab;
     HealthBar healthBar;
 
- 
+    public Inventory inventoryPrefab;
+    Inventory inventory;
 
 
     private void Start()
@@ -16,6 +17,9 @@ public class Player : Character
         hitPoints.value = startingHitPoints;
         healthBar = Instantiate(healthBarPrefab);
         healthBar.character = this;
+
+        inventory = Instantiate(inventoryPrefab);
+     
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +37,7 @@ public class Player : Character
                 switch (hitObject.itemType) {
 
                     case Item.ItemType.COIN:
+                        shouldDisappear = inventory.addItem(hitObject);
                         shouldDisappear = true;
                         break;
 

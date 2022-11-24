@@ -170,8 +170,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: {fileID: 11400000, guid: 17fae4f3694eb42f388e6afc7e373518, type: 2}
   maxHitPoints: 10
-  startingHitPoints: 0
-  healthBarPrefab: {fileID: 0}
+  startingHitPoints: 6
+  healthBarPrefab: {fileID: 7261809042519064783, guid: 1db2aa13995e14580894bab6992f527e,
+    type: 3}
+  inventoryPrefab: {fileID: 7991499864061965050, guid: 32892e66cf4f946d18af28afca1f43d8,
+    type: 3}
 --- !u!114 &838358181
 MonoBehaviour:
   m_ObjectHideFlags: 0
