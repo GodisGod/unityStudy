@@ -9,6 +9,8 @@ public class RPGGameManager : MonoBehaviour
 
     public SpawnPoint playerSpawnPoint;
 
+    public RPGCameraManager cameraManager;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -40,6 +42,7 @@ public class RPGGameManager : MonoBehaviour
     public void SpawnPlayer() {
         if (playerSpawnPoint != null) {
             GameObject player = playerSpawnPoint.SpawnObject();
+            cameraManager.virtualCamera.Follow = player.transform;
         }
     }
 
