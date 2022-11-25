@@ -4,21 +4,19 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
- 
-    public HitPoints hitPoints;
-
     public float maxHitPoints;
     public float startingHitPoints;
-
-    // Start is called before the first frame update
-    void Start()
+    public enum CharacterCategory
     {
-        
+        PLAYER,
+        ENEMY
     }
+    public CharacterCategory characterCategory;
+    public abstract void ResetCharacter();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public abstract IEnumerator DamageCharacter(int damage,float interval);
+
+    public virtual void KillCharacter() {
+        Destroy(gameObject);
     }
 }
