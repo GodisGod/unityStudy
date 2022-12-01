@@ -6,6 +6,8 @@ public class Ammo : MonoBehaviour
 {
 
     public int damageInflicted;
+    
+    AudioSource audioSource;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,6 +19,10 @@ public class Ammo : MonoBehaviour
         }
     }
 
+    private void Awake() {
+        audioSource = GetComponent<AudioSource>();
+       
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -28,4 +34,17 @@ public class Ammo : MonoBehaviour
     {
         
     }
+
+private void OnEnable() {
+     audioSource.Play();
+}
+
+private void OnDisable() {
+    if(audioSource.isPlaying){
+ audioSource.Stop();
+}
+    }
+    
+
+
 }

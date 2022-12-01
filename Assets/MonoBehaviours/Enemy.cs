@@ -12,6 +12,7 @@ public class Enemy : Character
     public override IEnumerator DamageCharacter(int damage, float interval)
     {
         while (true) {
+            StartCoroutine(FlickerCharacter());
             hitPoints = hitPoints - damage;
             if (hitPoints <= float.Epsilon) {
                 KillCharacter();

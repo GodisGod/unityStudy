@@ -206,3 +206,5 @@ MonoBehaviour:
     type: 3}
   poolSize: 7
   weaponVelocity: 2
+  animator: {fileID: 0}
+  audioClip: {fileID: 0}

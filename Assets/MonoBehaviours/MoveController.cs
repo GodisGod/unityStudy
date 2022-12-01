@@ -42,17 +42,19 @@ public class MoveController : MonoBehaviour
 
         private void UpdateState()
     {
-        if (movement.x > 0) {
-            animator.SetInteger(animationState, (int)CharStates.walkEast);   
-        }else if (movement.x < 0) {
-            animator.SetInteger(animationState, (int)CharStates.walkWest);   
-        }else if (movement.y > 0) {
-            animator.SetInteger(animationState, (int)CharStates.walkNorth);   
-        }else if (movement.y < 0) {
-            animator.SetInteger(animationState, (int)CharStates.walkSouth);   
-        }else{
-            animator.SetInteger(animationState, (int)CharStates.idleSouth);   
+       
+        if (Mathf.Approximately(movement.x, 0) && Mathf.Approximately(movement.y, 0))
+        {
+            animator.SetBool("isWalking", false);
         }
+        else
+        {
+            animator.SetBool("isWalking", true);
+        }
+
+        animator.SetFloat("xDir", movement.x);
+        animator.SetFloat("yDir", movement.y);
+
     }
 
     private void MoveCharacter()

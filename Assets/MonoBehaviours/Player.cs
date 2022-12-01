@@ -73,6 +73,7 @@ public class Player : Character
     public override IEnumerator DamageCharacter(int damage, float interval)
     {
         while (true) {
+            StartCoroutine(FlickerCharacter());
             hitPoints.value = hitPoints.value - damage;
             if (hitPoints.value<=float.Epsilon) {
                 KillCharacter();
