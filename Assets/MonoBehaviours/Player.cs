@@ -13,16 +13,6 @@ public class Player : Character
     Inventory inventory;
 
 
-    private void Start()
-    {
-        //hitPoints.value = startingHitPoints;
-        //healthBar = Instantiate(healthBarPrefab);
-        //healthBar.character = this;
-
-        //inventory = Instantiate(inventoryPrefab);
-     
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("CanBePickedUp")) {
